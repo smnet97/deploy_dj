@@ -1,8 +1,10 @@
 from django.urls import path
-from .views import ProductListView
+from .views import home, add_cart, cart_list
 
 app_name = 'product'
 
 urlpatterns = [
-    path('', ProductListView.as_view(), name='list')
+    path('', home, name='list'),
+    path('add/<int:id>/', add_cart, name='add-cart'),
+    path('cart/list/', cart_list, name='cart-list')
 ]
